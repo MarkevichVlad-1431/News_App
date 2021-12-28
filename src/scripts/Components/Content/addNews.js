@@ -19,7 +19,7 @@ function addNews(news) {
 
 
 const createFirstNews = (data) => {
-
+   
     let timePassed = updateDate(data.fields.firstPublicationDate);
 
     return `
