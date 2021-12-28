@@ -1,10 +1,12 @@
 const path = require('path');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
-const HtmlWebpackPlugin    = require('html-webpack-plugin');
-const CupyWebpackPlugin    = require('copy-webpack-plugin');
+const {
+    CleanWebpackPlugin
+} = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CupyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetWebpackPlugin = require('optimize-css-assets-webpack-plugin');
-const TerserWebpackPlugin  = require('terser-webpack-plugin');
+const TerserWebpackPlugin = require('terser-webpack-plugin');
 
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -76,11 +78,23 @@ module.exports = {
 
     plugins: [
         new HtmlWebpackPlugin({
+            filename: 'index.html',
             template: './index.html',
+            minify: {   
+                collapseWhitespace: isProd
+            },
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'NewsDetail.html',
+            template: './NewsDetail.html',
             minify: {
                 collapseWhitespace: isProd
-            }
+            },
         }),
+
+
+
+
         new CleanWebpackPlugin(),
         new CupyWebpackPlugin({
             patterns: [{
