@@ -1,6 +1,33 @@
 .content {
     margin-top: 30px;
 
+    .scrollTop {
+        position: fixed;
+        right: 30px;
+        bottom: 30px;
+        z-index: 1000;
+        padding: 9px 12px;
+        border-radius: 5px;
+        outline: none;
+
+        font-family: Inter;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 19px;
+        color: #FFFFFF;
+
+        background-color: #2F80ED;
+
+        img{
+            margin-left: 12px;
+        }
+    }
+
+    .scrollTopClose {
+        display: none;
+    }
+
     .newsList {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -117,7 +144,7 @@
 
                 overflow: hidden;
 
-                img{    
+                img {
                     width: 100%;
                 }
             }
@@ -163,7 +190,7 @@
                         font-weight: normal;
                         font-size: 12px;
                         line-height: 15px;
-                    
+
                         color: #718096;
                     }
 
@@ -176,6 +203,13 @@
 
                         color: #2D3748;
                     }
+                }
+
+                .visited {
+                    position: absolute;
+                    left: 15px;
+                    right: 0;
+                    bottom: 5px;
                 }
             }
         }

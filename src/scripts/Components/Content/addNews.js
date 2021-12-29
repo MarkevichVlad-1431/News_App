@@ -1,29 +1,45 @@
-import { updateDate } from "./updateDate";
+import {
+    updateDate
+} from "./updateDate";
+
+
 
 const bodyNews = document.querySelector('.newsList');
 
 function addNews(news) {
+
     bodyNews.innerHTML = '';
 
     if (news.length) {
         news.forEach((post, index) => {
             if (index == 0) {
                 bodyNews.innerHTML += createFirstNews(post);
-            } else{ 
+            } else {
                 bodyNews.innerHTML += createNews(post);
             }
-        
+
         });
     }
 }
 
+export const createFirstNews = (data) => {
+    let stateButton = JSON.parse(localStorage.getItem(data.fields.headline));
+    let now = new Date();
 
-const createFirstNews = (data) => {
-   
+    let time
+
+    if (stateButton) {
+        let timer = document.querySelector('.time');
+        data = stateButton;
+
+        time = Math.ceil(now.getMinutes() - new Date(data.lastVisitTime).getMinutes());
+        console.log(time);
+    }
+
     let timePassed = updateDate(data.fields.firstPublicationDate);
 
     return `
-        <a href="#" class="firstNewsWrapper">
+        <a href="NewsDetail.html" class="firstNewsWrapper">
             <div class="firstNewsWrapper__textContent">
                 <div class="firstNewsWrapper__textContent-title">${data.fields.headline}</div>
                 <div class="firstNewsWrapper__textContent-text">${data.fields.trailText}</div>
@@ -32,6 +48,7 @@ const createFirstNews = (data) => {
                     <div class="button">
                         <button class="readMore">ReadMore</button>
                     </div>
+                    <div class="visited">${ (data.VISITED) ? 'Просмотрено ' + time  + ' минут назад' : 'Не просмотрено'}</div>
                 </div>
             </div>
             <img class="firstNewsWrapper__img" src = "${data.fields.thumbnail}"> 
@@ -42,11 +59,19 @@ const createFirstNews = (data) => {
 }
 
 const createNews = (data) => {
+    let stateButton = JSON.parse(localStorage.getItem(data.fields.headline));
+    let now = new Date();
+    let time;
+    
+    if(stateButton){
+        data = stateButton;
+        time = Math.ceil(now.getMinutes() - new Date(data.lastVisitTime).getMinutes());
+    }
 
     let timePassed = updateDate(data.fields.firstPublicationDate);
 
     return `
-        <a href="#" class="newsWrapper">
+        <a href="NewsDetail.html" class="newsWrapper">
             <div class="newsWrapper__img">
                 <img src = "${data.fields.thumbnail}"/>
             </div>
@@ -58,6 +83,7 @@ const createNews = (data) => {
                     <div class="timeNews">${timePassed} days ago</div>
                     <button class="readMore">ReadMore</button>
                 </div>
+                <div class="visited">${ (data.VISITED) ? 'Просмотрено ' + time + ' минут назад' : ' Не просмотрено'}</div>
             </div>
         </a>`
 }
