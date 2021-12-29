@@ -2,12 +2,9 @@ import {
     updateDate
 } from "./updateDate";
 
-
-
 const bodyNews = document.querySelector('.newsList');
 
 function addNews(news) {
-
     bodyNews.innerHTML = '';
 
     if (news.length) {
@@ -23,6 +20,7 @@ function addNews(news) {
 }
 
 export const createFirstNews = (data) => {
+
     let stateButton = JSON.parse(localStorage.getItem(data.fields.headline));
     let now = new Date();
 
@@ -32,14 +30,13 @@ export const createFirstNews = (data) => {
         let timer = document.querySelector('.time');
         data = stateButton;
 
-        time = Math.ceil(now.getMinutes() - new Date(data.lastVisitTime).getMinutes());
-        console.log(time);
+        time = Math.ceil((now - new Date(data.lastVisitTime)) / 60000);
     }
 
     let timePassed = updateDate(data.fields.firstPublicationDate);
 
     return `
-        <a href="NewsDetail.html" class="firstNewsWrapper">
+        <a href="#" class="firstNewsWrapper">
             <div class="firstNewsWrapper__textContent">
                 <div class="firstNewsWrapper__textContent-title">${data.fields.headline}</div>
                 <div class="firstNewsWrapper__textContent-text">${data.fields.trailText}</div>
@@ -62,16 +59,16 @@ const createNews = (data) => {
     let stateButton = JSON.parse(localStorage.getItem(data.fields.headline));
     let now = new Date();
     let time;
-    
-    if(stateButton){
+
+    if (stateButton) {
         data = stateButton;
-        time = Math.ceil(now.getMinutes() - new Date(data.lastVisitTime).getMinutes());
+        time = Math.ceil((now - new Date(data.lastVisitTime)) / 60000);
     }
 
     let timePassed = updateDate(data.fields.firstPublicationDate);
 
     return `
-        <a href="NewsDetail.html" class="newsWrapper">
+        <a href="#" class="newsWrapper">
             <div class="newsWrapper__img">
                 <img src = "${data.fields.thumbnail}"/>
             </div>

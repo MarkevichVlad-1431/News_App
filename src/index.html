@@ -12,7 +12,10 @@
 </head>
 
 <body>
-
+    <div class="mask">
+        <div class="loader">
+        </div>
+    </div>
     <header>
         <div class="container">
             <div class="row top align-item-center">
@@ -22,7 +25,12 @@
                     <a href="#" class="top__form-a">
                         <img src="src/assets/img/search.png" alt="Search">
                     </a>
-                    <input type="text" placeholder="Type something to start search" class="top__form-input">
+                    <input type="text" list='option' placeholder="Type something to start search" class="top__form-input">
+                        <button class="deleteText">X</button>
+                    </input>
+                    <ul class="inputMenu">
+                    </ul>
+                    
                 </div>
 
                 <div class="top__menu">
@@ -67,11 +75,8 @@
         </div>
 
     </header>
-
-    <div class="content">
-        <!-- <a href="NewsDetail.html"> GP</a> -->
-
-        <div class="container">
+    <div class="container">
+        <div class="content">
             <button class="scrollTop scrollTopClose">
                 Scroll to Top
                 <img src="src/assets/img/Vector.png" alt="goTop">
@@ -83,57 +88,16 @@
 
         </div>
     </div>
+    <footer>
+        <div class="container">
+            <hr class="footer__line">
+            <div class="footer__text">
+                <span>News App</span> 2021 copyright all rights reserved
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <a href='#' class="firstNewsWrapper">
-                    <div class="firstNewsWrapper__textContent">
-                        <div class="firstNewsWrapper__textContent-title">title</div>
-                        <div class="firstNewsWrapper__textContent-text">Lorem ipsum dolor sit amet consectetur
-                            adipisicing
-                            elit. Doloremque sint possimus fuga atque quod corrupti sed incidunt aliquid quisquam
-                            dolores sequi dolore, necessitatibus beatae cumque, libero, excepturi quo labore natus!
-                        </div>
-                        <div class="firstNewsWrapper__textContent-button">
-                            <div class="dataPost">1 day ago</div>
-                            <div class="button">
-                                <button class="readMore">ReadMore</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="firstNewsWrapper__img" style="background-image: url(src/assets/img/image.png)">
-                    </div>
-                </a> -->
-
-<!-- <a href="#" class="newsWrapper">
-                    <div class="newsWrapper__img" style="background-image: url(src/assets/img/image.png)"></div>
-                    <div class="newsWrapper__text">
-                        <div class="newsWrapper__text-title">Title</div>
-                        <div class="newsWrapper__text-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Expedita alias a, impedit voluptatibus quasi ipsum porro itaque aperiam officiis. Pariatur
-                            ut ipsam minus animi consequuntur ipsum assumenda et officiis earum?
-                        </div>
-                        <div class="newsWrapper__text-button">
-                            <div class="timeNews">data</div>
-                            <button class="readMore">ReadMore</button>
-                        </div>
-                    </div>
-                </a>
-               -->

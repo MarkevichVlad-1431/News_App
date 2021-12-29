@@ -1,0 +1,22 @@
+footer {
+    .footer__line {
+        width: 100%;
+        margin: 60px 0 0 0;
+    }
+
+    .footer__text {
+        padding: 18px 0;
+
+        font-family: Inter-Light;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 19px;
+
+        color: #000000;
+
+        span {
+            font-family: Inter
+        }
+    }
+}

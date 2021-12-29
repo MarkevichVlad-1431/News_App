@@ -84,17 +84,6 @@ module.exports = {
                 collapseWhitespace: isProd
             },
         }),
-        new HtmlWebpackPlugin({
-            filename: 'NewsDetail.html',
-            template: './NewsDetail.html',
-            minify: {
-                collapseWhitespace: isProd
-            },
-        }),
-
-
-
-
         new CleanWebpackPlugin(),
         new CupyWebpackPlugin({
             patterns: [{

@@ -19,7 +19,7 @@
 
         background-color: #2F80ED;
 
-        img{
+        img {
             margin-left: 12px;
         }
     }
@@ -34,6 +34,12 @@
         column-gap: 60px;
         grid-template-areas:
             'firstNews firstNews firstNews';
+
+        @media screen and (max-width: 992px) {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+                'firstNews firstNews';
+        }
 
         .firstNewsWrapper {
             grid-area: firstNews;
@@ -55,15 +61,22 @@
                 position: relative;
                 padding: 40px 80px 42px 50px;
 
+                @media screen and (max-width: 992px) {
+                    padding: 20px 30px 20px 25px
+                }
+
                 .firstNewsWrapper__textContent-title {
                     font-family: Inter;
                     font-style: normal;
                     font-size: 30px;
                     line-height: 36px;
 
-                    /* 800 */
-
                     color: #2D3748;
+
+                    @media screen and (max-width: 992px) {
+                        font-size: 16px;
+                        line-height: 20px;
+                    }
                 }
 
                 .firstNewsWrapper__textContent-text {
@@ -78,9 +91,14 @@
 
                     overflow: hidden;
 
-                    /* 600 */
-
                     color: #718096;
+
+                    @media screen and (max-width: 992px) {
+                        margin: 15px 0 20px 0;
+
+                        font-size: 12px;
+                        line-height: 20px;
+                    }
 
                 }
 
@@ -93,6 +111,12 @@
                     display: grid;
                     grid-template-columns: 30% 30%;
                     justify-content: space-between;
+
+                    @media screen and (max-width: 992px) {
+                        bottom: 15px;
+                        left: 25px;
+                        right: 0px;
+                    }
 
                     .dataPost {
                         font-family: Inter;
@@ -115,6 +139,23 @@
 
                             color: #2D3748;
                         }
+                    }
+
+                    .visited {
+                        position: absolute;
+                        bottom: -15px;
+                        left: 0;
+                        right: 0px;
+
+                        @media screen and (max-width: 992px) {
+                            position: absolute;
+                            bottom: 0px;
+                            left: 0;
+                            right: 0px;
+
+                            font-size: 10px;
+                        }
+
                     }
                 }
             }

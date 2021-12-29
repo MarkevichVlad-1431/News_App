@@ -1,7 +1,14 @@
 //Components
 @import './components/Header.scss';
 @import './components/Content.scss';
+@import './components/Footer.scss';
 
+
+//Components articlePage
+@import './components/ArticlePage/ArticlePage.scss';
+
+//Loader
+@import './components/loader.scss';
 
 //Helpers
 @import './helpers/normalize.scss';

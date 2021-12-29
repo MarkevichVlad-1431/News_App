@@ -1,4 +1,6 @@
+import addNews from "./createArticlePage";
 function checkVisitedNews(data) {
+
     let firstNewsWrapper = document.querySelector('.firstNewsWrapper');
     let newsWrapper = document.querySelectorAll('.newsWrapper');
 
@@ -8,6 +10,8 @@ function checkVisitedNews(data) {
 
         for (const item of data) {
             if(item.fields.headline == title.textContent){
+                addNews(item.fields);
+
                 stateButton = item;
                 stateButton.VISITED = true;
                 stateButton.lastVisitTime = new Date();
@@ -26,12 +30,14 @@ function checkVisitedNews(data) {
             for (const item of data) {
                
                 if(item.fields.headline == title.textContent){
-                    debugger;
+                    addNews(item.fields);
+
                     stateButton = item;
                     stateButton.VISITED = true;
+                    
                     stateButton.lastVisitTime = new Date();
+
                     localStorage.setItem(title.textContent, JSON.stringify(stateButton))
-                    console.log(stateButton);
                 }
             }
         }

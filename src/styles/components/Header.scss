@@ -122,6 +122,7 @@ header {
         }
 
         .top__form {
+            position: relative;
             margin-left: 70px;
             padding: 7px 10px 7px 20px;
             width: 350px;
@@ -130,6 +131,7 @@ header {
             border-radius: 4px;
 
             .top__form-input {
+                position: relative;
                 width: 80%;
                 border: 0;
 
@@ -145,6 +147,42 @@ header {
 
                 &::placeholder {
                     color: #000000
+                }
+
+            }
+
+            /**/
+
+
+            button {
+                position: absolute;
+                right: 10;
+                outline: none;
+            }
+            .deleteText{
+                display: none;
+            }
+
+            .inputMenu {
+                position: absolute;
+                
+                max-height: 400px;
+                width: 95%;
+                background-color: rgba(255, 255, 255, 1);
+                box-shadow: 0px 0px 4px #BDBDBD;
+
+                z-index: 1000;
+                overflow-y: scroll;
+                list-style: none;
+                border-radius: 0.6rem;
+
+                li{
+                    padding: 10px;
+                    font-size: 12px;
+                }
+
+                .hideLi{
+                    display: none;
                 }
             }
 

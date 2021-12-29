@@ -1,3 +1,4 @@
+import packLi from "../Header/updateInput";
 import addNews from "./addNews";
 import checkVisitedNews from "./observerVisitedTime";
 import sortNews from "./sortNews";
@@ -8,6 +9,7 @@ let initialUrl = 'https://content.guardianapis.com/search?q=trending&show-tags=a
 // localStorage.clear();    
 
 localStorage.setItem('startURL', initialUrl.toString());
+
 async function getRequestNews() {
 
     if (localStorage.getItem('URL')) {
@@ -17,23 +19,26 @@ async function getRequestNews() {
             .then(response => {
                 addNews(sortNews((response.response.results)));
                 checkVisitedNews(response.response.results);
-                checkVisitedNews(response.response.results);
+                packLi(response.response.results);
             })
 
     } else {
 
         await fetch(localStorage.getItem('startURL'))
             .then(response => response.json())
-            .then(response => {
+            .then(response => {                
                 addNews(sortNews((response.response.results)));
-                checkVisitedNews(response.response.results)
+                checkVisitedNews(response.response.results);
+                packLi(response.response.results);
             });
     }
-
-
 }
 
-getRequestNews();
+if(!(document.URL === 'http://localhost:5500/1')){
+    getRequestNews();
+}
+
+
 
 
 export default getRequestNews;
